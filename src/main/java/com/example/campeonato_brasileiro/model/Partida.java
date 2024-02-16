@@ -11,7 +11,7 @@ import java.util.List;
 public class Partida {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String rodada;
     private String data;
@@ -32,12 +32,13 @@ public class Partida {
     private List<Cartao> cartoes;
     @OneToMany(mappedBy = "partida", cascade = CascadeType.ALL)
     private List<Gol> gols;
+    @OneToMany(mappedBy = "partida", cascade = CascadeType.ALL)
+    private List<Estatistica> estatisticas;
 
     public Partida() {
     }
 
-    public Partida(Long id, String rodada, String data, String hora, String mandante, String visitante, String formacao_mandante, String formacao_visitante, String tecnico_mandante, String tecnico_visitante, String vencedor, String arena, String mandante_Placar, String visitante_Placar, String mandante_Estado, String visitante_Estado) {
-        this.id = id;
+    public Partida(String rodada, String data, String hora, String mandante, String visitante, String formacao_mandante, String formacao_visitante, String tecnico_mandante, String tecnico_visitante, String vencedor, String arena, String mandante_Placar, String visitante_Placar, String mandante_Estado, String visitante_Estado) {
         this.rodada = rodada;
         this.data = data;
         this.hora = hora;
@@ -55,13 +56,6 @@ public class Partida {
         this.visitante_Estado = visitante_Estado;
     }
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
 
     public String getRodada() {
         return rodada;
@@ -181,5 +175,13 @@ public class Partida {
 
     public void setVisitante_Estado(String visitante_Estado) {
         this.visitante_Estado = visitante_Estado;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 }

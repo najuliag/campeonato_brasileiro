@@ -1,8 +1,8 @@
 package com.example.campeonato_brasileiro.controllers;
 
 import com.example.campeonato_brasileiro.model.Cartao;
-import com.example.campeonato_brasileiro.model.Gol;
-import com.example.campeonato_brasileiro.services.GolService;
+import com.example.campeonato_brasileiro.model.Estatistica;
+import com.example.campeonato_brasileiro.services.EstatisticaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -11,24 +11,24 @@ import java.io.IOException;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/gol")
-public class GolController {
+@RequestMapping("/api/estatistica")
+public class EstatisticaController {
 
     @Autowired
-    private GolService golService;
+    private EstatisticaService estatisticaService;
 
     @PostMapping("/processar-csv")
     public void create(@RequestParam("caminhoDoArquivo") String caminhoDoArquivo) throws IOException {
-        golService.create(caminhoDoArquivo);
+        estatisticaService.create(caminhoDoArquivo);
     }
 
-    @GetMapping("/gols")
-    public ResponseEntity<List<Gol>> findAll() {
-        return golService.findAll();
+    @GetMapping("/estatisticas")
+    public ResponseEntity<List<Estatistica>> findAll() {
+        return estatisticaService.findAll();
     }
 
     @GetMapping(value = "/{id}")
-    public Gol findById(@PathVariable Long id){
-        return golService.findById(id);
+    public Estatistica findById(@PathVariable Long id){
+        return estatisticaService.findById(id);
     }
 }

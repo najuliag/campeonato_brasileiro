@@ -6,16 +6,17 @@ import jakarta.persistence.*;
 @Table(name = "gols")
 public class Gol {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @ManyToOne
+    @JoinColumn(name = "id_partida", referencedColumnName = "id")
+    private Partida partida;
     private String rodada;
     private String clube;
     private String atleta;
     private String minuto;
     private String tipo_de_gol;
-    @ManyToOne
-    @JoinColumn(name = "id_partida", referencedColumnName = "id")
-    private Partida partida;
+
 
     public Gol() {
     }

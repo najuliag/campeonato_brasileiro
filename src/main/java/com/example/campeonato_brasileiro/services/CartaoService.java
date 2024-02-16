@@ -68,5 +68,4 @@ public class CartaoService {
     public Cartao findById(Long id) {
         return cartaoRepository.findById(id).orElseThrow(() -> new ResourceNotFound("No records found for this id."));
     }
-
 }

@@ -2,6 +2,7 @@ package com.example.campeonato_brasileiro.services;
 
 import com.example.campeonato_brasileiro.exceptions.ResourceNotFound;
 import com.example.campeonato_brasileiro.model.Gol;
+import com.example.campeonato_brasileiro.model.Partida;
 import com.example.campeonato_brasileiro.repositories.GolRepository;
 import com.opencsv.CSVReader;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +15,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Logger;
 
 @Service
 public class GolService {
@@ -25,14 +27,18 @@ public class GolService {
     @Transactional
     public void create(String caminhoDoArquivo) throws IOException {
         try (CSVReader reader = new CSVReader(new FileReader(caminhoDoArquivo))) {
+
             String[] headers = reader.readNext();
 
             if (headers != null) {
                 String[] linha;
                 List<Gol> gols = new ArrayList<>();
                 while ((linha = reader.readNext()) != null) {
+                    Long partidaId = Long.valueOf(linha[0]);
+                    Partida partida = partidaService.findById(partidaId);
+
                     Gol gol = new Gol();
-                    gol.setPartida(partidaService.findById(Long.parseLong(linha[0])));
+                    gol.setPartida(partida);
                     gol.setRodada(linha[1]);
                     gol.setClube(linha[2]);
                     gol.setAtleta(linha[3]);

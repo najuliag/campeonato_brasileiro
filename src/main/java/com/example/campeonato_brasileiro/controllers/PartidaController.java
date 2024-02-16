@@ -10,13 +10,13 @@ import java.io.IOException;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/partida")
 public class PartidaController {
 
         @Autowired
         private PartidaService partidaService;
 
-        @PostMapping("/processar-csv-partida")
+        @PostMapping("/processar-csv")
         public void create(@RequestParam("caminhoDoArquivo") String caminhoDoArquivo) throws IOException {
             partidaService.create(caminhoDoArquivo);
         }
@@ -25,7 +25,7 @@ public class PartidaController {
             return partidaService.findAll();
         }
 
-        @GetMapping(value = "partida/{id}")
+        @GetMapping(value = "/{id}")
         public Partida findById(@PathVariable Long id){
             return partidaService.findById(id);
         }

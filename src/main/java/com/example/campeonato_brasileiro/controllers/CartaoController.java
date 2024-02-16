@@ -10,13 +10,13 @@ import java.io.IOException;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/cartao")
 public class CartaoController {
 
     @Autowired
     private CartaoService cartaoService;
 
-    @PostMapping("/processar-csv-cartao")
+    @PostMapping("/processar-csv")
     public void create(@RequestParam("caminhoDoArquivo") String caminhoDoArquivo) throws IOException {
         cartaoService.create(caminhoDoArquivo);
     }
@@ -26,8 +26,9 @@ public class CartaoController {
         return cartaoService.findAll();
     }
 
-    @GetMapping(value = "cartao/{id}")
+    @GetMapping(value = "/{id}")
     public Cartao findById(@PathVariable Long id){
         return cartaoService.findById(id);
     }
+
 }

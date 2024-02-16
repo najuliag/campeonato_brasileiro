@@ -32,7 +32,6 @@ public class PartidaService {
 
                 while ((linha = reader.readNext()) != null) {
                     Partida partida = new Partida();
-                    partida.setId(Long.valueOf(linha[0]));
                     partida.setRodada(linha[1]);
                     partida.setData(linha[2]);
                     partida.setHora(linha[3]);
