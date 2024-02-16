@@ -65,6 +65,8 @@ public class EstatisticaService {
         }
     }
 
+
+
     public ResponseEntity<List<Estatistica>> findAll(){
         try {
             List<Estatistica> estatisticas = estatisticaRepository.findAll();
