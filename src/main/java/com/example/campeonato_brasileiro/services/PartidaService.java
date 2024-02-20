@@ -1,8 +1,7 @@
 package com.example.campeonato_brasileiro.services;
 
-import com.example.campeonato_brasileiro.dto.ContagemDeCartoesDTO;
+import com.example.campeonato_brasileiro.dto.CartoesDTO;
 import com.example.campeonato_brasileiro.exceptions.ResourceNotFound;
-import com.example.campeonato_brasileiro.model.Cartao;
 import com.example.campeonato_brasileiro.model.Partida;
 import com.example.campeonato_brasileiro.repositories.PartidaRepository;
 import com.opencsv.CSVReader;
@@ -76,11 +75,10 @@ public class PartidaService {
         return partidaRepository.findById(id).orElseThrow(() -> new ResourceNotFound("No records found for this id."));
     }
 
-    public ContagemDeCartoesDTO clubeComMaisCartoesAmarelos() {
+    public CartoesDTO clubeComMaisCartoesAmarelos() {
         return partidaRepository.clubeComMaisCartoesAmarelos()
                 .stream()
-                .max(Comparator.comparingLong(ContagemDeCartoesDTO::getQuantidadeCartoesAmarelos))
+                .max(Comparator.comparingLong(CartoesDTO::getQntdCartoes))
                 .orElse(null);
     }
-
 }

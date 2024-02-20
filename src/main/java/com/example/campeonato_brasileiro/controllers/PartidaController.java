@@ -1,7 +1,6 @@
 package com.example.campeonato_brasileiro.controllers;
 
-import com.example.campeonato_brasileiro.dto.ContagemDeCartoesDTO;
-import com.example.campeonato_brasileiro.model.Cartao;
+import com.example.campeonato_brasileiro.dto.CartoesDTO;
 import com.example.campeonato_brasileiro.model.Partida;
 import com.example.campeonato_brasileiro.services.PartidaService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,8 +31,8 @@ public class PartidaController {
             return partidaService.findById(id);
         }
 
-    @GetMapping("/clubeComMaisCartoesAmarelos")
-    public ContagemDeCartoesDTO getClubeComMaisCartoesAmarelos() {
+    @GetMapping("/clube-com-mais-cartoes-amarelos")
+    public CartoesDTO getClubeComMaisCartoesAmarelos() {
         return partidaService.clubeComMaisCartoesAmarelos();
     }
     }
