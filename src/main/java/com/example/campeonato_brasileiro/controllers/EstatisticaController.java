@@ -1,6 +1,5 @@
 package com.example.campeonato_brasileiro.controllers;
 
-import com.example.campeonato_brasileiro.model.Cartao;
 import com.example.campeonato_brasileiro.model.Estatistica;
 import com.example.campeonato_brasileiro.services.EstatisticaService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,4 +30,5 @@ public class EstatisticaController {
     public Estatistica findById(@PathVariable Long id){
         return estatisticaService.findById(id);
     }
+
 }

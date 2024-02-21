@@ -2,7 +2,6 @@ package com.example.campeonato_brasileiro.services;
 
 import com.example.campeonato_brasileiro.exceptions.ResourceNotFound;
 import com.example.campeonato_brasileiro.model.Estatistica;
-import com.example.campeonato_brasileiro.model.Gol;
 import com.example.campeonato_brasileiro.model.Partida;
 import com.example.campeonato_brasileiro.repositories.EstatisticaRepository;
 import com.opencsv.CSVReader;
@@ -41,8 +40,8 @@ public class EstatisticaService {
                     Estatistica estatistica = new Estatistica();
                     estatistica.setPartida(partida);
                     estatistica.setRodada(linha[1]);
-                    estatistica.setChutes(linha[2]);
-                    estatistica.setClube(linha[3]);
+                    estatistica.setClube(linha[2]);
+                    estatistica.setChutes(linha[3]);
                     estatistica.setChutes_no_alvo(linha[4]);
                     estatistica.setPosse_De_bola(linha[5]);
                     estatistica.setPasses(linha[6]);
@@ -78,4 +77,7 @@ public class EstatisticaService {
     public Estatistica findById(Long id) {
         return estatisticaRepository.findById(id).orElseThrow(() -> new ResourceNotFound("No records found for this id."));
     }
+
 }
+
+

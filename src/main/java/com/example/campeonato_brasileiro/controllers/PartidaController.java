@@ -1,6 +1,8 @@
 package com.example.campeonato_brasileiro.controllers;
 
+import com.example.campeonato_brasileiro.dto.ArenasEGolsDTO;
 import com.example.campeonato_brasileiro.dto.CartoesDTO;
+import com.example.campeonato_brasileiro.dto.EstatisticaDTO;
 import com.example.campeonato_brasileiro.model.Partida;
 import com.example.campeonato_brasileiro.services.PartidaService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,7 +34,17 @@ public class PartidaController {
         }
 
     @GetMapping("/clube-com-mais-cartoes-amarelos")
-    public CartoesDTO getClubeComMaisCartoesAmarelos() {
+    public CartoesDTO clubeComMaisCartoesAmarelos() {
         return partidaService.clubeComMaisCartoesAmarelos();
     }
+
+    @GetMapping("/arena-com-mais-gols")
+    public ArenasEGolsDTO arenaComMaisGols(){
+            return partidaService.arenaComMaisGols();
     }
+
+    @GetMapping("/clubes-mais-precisos")
+    public List<EstatisticaDTO> obterClubesMaisPrecisos() {
+        return partidaService.obterClubesMaisPrecisosEmPasses();
+    }
+}

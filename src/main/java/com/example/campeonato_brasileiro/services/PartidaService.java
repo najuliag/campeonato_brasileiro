@@ -1,6 +1,8 @@
 package com.example.campeonato_brasileiro.services;
 
+import com.example.campeonato_brasileiro.dto.ArenasEGolsDTO;
 import com.example.campeonato_brasileiro.dto.CartoesDTO;
+import com.example.campeonato_brasileiro.dto.EstatisticaDTO;
 import com.example.campeonato_brasileiro.exceptions.ResourceNotFound;
 import com.example.campeonato_brasileiro.model.Partida;
 import com.example.campeonato_brasileiro.repositories.PartidaRepository;
@@ -80,5 +82,14 @@ public class PartidaService {
                 .stream()
                 .max(Comparator.comparingLong(CartoesDTO::getQntdCartoes))
                 .orElse(null);
+    }
+    public ArenasEGolsDTO arenaComMaisGols() {
+        return partidaRepository.arenaComMaisGols()
+                .stream()
+                .max(Comparator.comparingLong(ArenasEGolsDTO::getQntdGols))
+                .orElse(null);
+    }
+    public List<EstatisticaDTO> obterClubesMaisPrecisosEmPasses() {
+        return partidaRepository.clubesMaisPrecisosEmPasses();
     }
 }
