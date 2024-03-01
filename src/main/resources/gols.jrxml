@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.21.2.final using JasperReports Library version 6.21.2-8434a0bd7c3bbc37cbf916f2968d35e4b165821a  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="cursos" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="0f7b22af-18c0-47bc-bb54-68361acc9ea9">
+
+    <field name="ID" class="java.lang.Long">
+    </field>
+    <field name="PARTIDA" class="com.example.campeonato_brasileiro.model.Partida">
+    </field>
+    <field name="RODADA" class="java.lang.String">
+    </field>
+    <field name="CLUBE" class="java.lang.String">
+    </field>
+    <field name="ATLETA" class="java.lang.String">
+    </field>
+    <background>
+        <band height="52"/>
+    </background>
+    <title>
+        <band height="76">
+            <frame>
+                <reportElement mode="Opaque" x="-20" y="-20" width="595" height="92" backcolor="#006699" uuid="bd34ff25-d797-4868-a0b1-46666cb6b4da"/>
+                <staticText>
+                    <reportElement x="20" y="20" width="234" height="43" forecolor="#FFFFFF" uuid="334ce1fc-583a-43d1-833a-e9aa285a1acd"/>
+                    <textElement>
+                        <font size="34" isBold="true"/>
+                    </textElement>
+                    <text><![CDATA[Gols]]></text>
+                </staticText>
+                <staticText>
+                    <reportElement x="395" y="43" width="180" height="20" forecolor="#FFFFFF" uuid="d935e177-9f5a-40de-aed4-f403d308c37d"/>
+                    <textElement textAlignment="Right">
+                        <font size="14" isBold="false"/>
+                    </textElement>
+                    <text><![CDATA[Gols reports]]></text>
+                </staticText>
+            </frame>
+        </band>
+    </title>
+    <pageHeader>
+        <band height="26"/>
+    </pageHeader>
+    <columnHeader>
+        <band height="21">
+            <line>
+                <reportElement x="-20" y="20" width="609" height="1" forecolor="#666666" uuid="c9a80453-ee77-4710-bca4-691bc57eebd4"/>
+            </line>
+            <staticText>
+                <reportElement mode="Opaque" x="0" y="0" width="111" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="44bd57a5-a72b-4b2d-ac0e-9d189a7d80b2">
+                    <property name="com.jaspersoft.studio.spreadsheet.connectionID" value="7d09d6ee-d69f-4102-81fc-58a890a070e9"/>
+                </reportElement>
+                <textElement textAlignment="Center">
+                    <font size="14" isBold="true"/>
+                </textElement>
+                <text><![CDATA[ID]]></text>
+            </staticText>
+            <staticText>
+                <reportElement mode="Opaque" x="111" y="0" width="111" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="1cd901c6-d37e-4937-bac0-d56e9793231f">
+                    <property name="com.jaspersoft.studio.spreadsheet.connectionID" value="6819a6ff-1433-4394-9d5d-718c9899d7ac"/>
+                </reportElement>
+                <textElement textAlignment="Center">
+                    <font size="14" isBold="true"/>
+                </textElement>
+                <text><![CDATA[PARTIDA]]></text>
+            </staticText>
+            <staticText>
+                <reportElement mode="Opaque" x="222" y="0" width="111" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="6e8b292b-57e7-4935-b03c-dcf4ec6d83d7">
+                    <property name="com.jaspersoft.studio.spreadsheet.connectionID" value="a1cf2c0e-8256-4586-9b37-f450540c94f5"/>
+                </reportElement>
+                <textElement textAlignment="Center">
+                    <font size="14" isBold="true"/>
+                </textElement>
+                <text><![CDATA[RODADA]]></text>
+            </staticText>
+            <staticText>
+                <reportElement mode="Opaque" x="333" y="0" width="111" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="9c7b4b74-0b3f-4c89-a0d5-0944289f3727">
+                    <property name="com.jaspersoft.studio.spreadsheet.connectionID" value="e65d76c8-3906-4d28-b613-971b53a73e81"/>
+                </reportElement>
+                <textElement textAlignment="Center">
+                    <font size="14" isBold="true"/>
+                </textElement>
+                <text><![CDATA[CLUBE]]></text>
+            </staticText>
+            <staticText>
+                <reportElement mode="Opaque" x="444" y="0" width="111" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="1c641242-b079-4941-8d13-619bade85537">
+                    <property name="com.jaspersoft.studio.spreadsheet.connectionID" value="cd61b9f0-c7ba-4f79-b315-c27307940678"/>
+                </reportElement>
+                <textElement textAlignment="Center">
+                    <font size="14" isBold="true"/>
+                </textElement>
+                <text><![CDATA[ATLETA]]></text>
+            </staticText>
+        </band>
+    </columnHeader>
+    <detail>
+        <band height="20">
+            <line>
+                <reportElement positionType="FixRelativeToBottom" x="0" y="19" width="555" height="1" uuid="0950f28c-c30e-4ec7-a432-55d3d24cd530"/>
+            </line>
+            <textField textAdjust="StretchHeight">
+                <reportElement x="0" y="0" width="111" height="20" uuid="c54c4724-3ad0-43a7-b7d9-94d5609984d5">
+                    <property name="com.jaspersoft.studio.spreadsheet.connectionID" value="7d09d6ee-d69f-4102-81fc-58a890a070e9"/>
+                </reportElement>
+                <textElement>
+                    <font size="14"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{ID}]]></textFieldExpression>
+            </textField>
+            <textField textAdjust="StretchHeight">
+                <reportElement x="111" y="0" width="111" height="20" uuid="5533b8d6-de43-4994-ad96-de9f26d1f2d8">
+                    <property name="com.jaspersoft.studio.spreadsheet.connectionID" value="6819a6ff-1433-4394-9d5d-718c9899d7ac"/>
+                </reportElement>
+                <textElement>
+                    <font size="14"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{PARTIDA}]]></textFieldExpression>
+            </textField>
+            <textField textAdjust="StretchHeight">
+                <reportElement x="222" y="0" width="111" height="20" uuid="3f94b0d0-174a-45ba-809b-9a1de7676950">
+                    <property name="com.jaspersoft.studio.spreadsheet.connectionID" value="a1cf2c0e-8256-4586-9b37-f450540c94f5"/>
+                </reportElement>
+                <textElement>
+                    <font size="14"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{RODADA}]]></textFieldExpression>
+            </textField>
+            <textField textAdjust="StretchHeight">
+                <reportElement x="333" y="0" width="111" height="20" uuid="285889fe-af9a-44a8-a167-902e1c11086b">
+                    <property name="com.jaspersoft.studio.spreadsheet.connectionID" value="e65d76c8-3906-4d28-b613-971b53a73e81"/>
+                </reportElement>
+                <textElement>
+                    <font size="14"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{CLUBE}]]></textFieldExpression>
+            </textField>
+            <textField textAdjust="StretchHeight">
+                <reportElement x="444" y="0" width="111" height="20" uuid="77185a20-2144-42ea-a77a-796b181d11e6">
+                    <property name="com.jaspersoft.studio.spreadsheet.connectionID" value="cd61b9f0-c7ba-4f79-b315-c27307940678"/>
+                </reportElement>
+                <textElement>
+                    <font size="14"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{ATLETA}]]></textFieldExpression>
+            </textField>
+        </band>
+    </detail>
+    <columnFooter>
+        <band/>
+    </columnFooter>
+    <pageFooter>
+        <band height="17">
+            <textField>
+                <reportElement mode="Opaque" x="0" y="4" width="515" height="13" backcolor="#E6E6E6" uuid="e755af56-172c-4027-b0e3-3b3a950dfd0f"/>
+                <textElement textAlignment="Right"/>
+                <textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+            </textField>
+            <textField evaluationTime="Report">
+                <reportElement mode="Opaque" x="515" y="4" width="40" height="13" backcolor="#E6E6E6" uuid="687e302a-5aa4-496a-aa0d-ec11793282be"/>
+                <textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+            </textField>
+            <textField pattern="EEEEE dd MMMMM yyyy">
+                <reportElement x="0" y="4" width="100" height="13" uuid="7cbbd9dd-32bb-4e8a-bfa7-666aa0733aed"/>
+                <textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+            </textField>
+        </band>
+    </pageFooter>
+    <summary>
+        <band/>
+    </summary>
+</jasperReport>

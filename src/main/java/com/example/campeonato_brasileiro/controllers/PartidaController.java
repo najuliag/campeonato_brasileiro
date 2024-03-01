@@ -33,9 +33,9 @@ public class PartidaController {
             return partidaService.findById(id);
         }
 
-    @GetMapping("/clube-com-mais-cartoes-amarelos")
-    public CartoesDTO clubeComMaisCartoesAmarelos() {
-        return partidaService.clubeComMaisCartoesAmarelos();
+    @GetMapping("/clube-com-mais-cartoes-amarelos/{ano}")
+    public CartoesDTO clubeComMaisCartoesAmarelos(@PathVariable String ano) {
+        return partidaService.clubeComMaisCartoesAmarelos(ano);
     }
 
     @GetMapping("/arena-com-mais-gols")
@@ -44,7 +44,7 @@ public class PartidaController {
     }
 
     @GetMapping("/clubes-mais-precisos")
-    public List<EstatisticaDTO> obterClubesMaisPrecisos() {
-        return partidaService.obterClubesMaisPrecisosEmPasses();
+    public EstatisticaDTO obterClubesMaisPrecisos() {
+        return partidaService.clubeComMaiorPrecisao();
     }
 }

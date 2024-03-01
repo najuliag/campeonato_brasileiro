@@ -77,8 +77,8 @@ public class PartidaService {
         return partidaRepository.findById(id).orElseThrow(() -> new ResourceNotFound("No records found for this id."));
     }
 
-    public CartoesDTO clubeComMaisCartoesAmarelos() {
-        return partidaRepository.clubeComMaisCartoesAmarelos()
+    public CartoesDTO clubeComMaisCartoesAmarelos(String ano) {
+        return partidaRepository.clubeComMaisCartoesAmarelos(ano)
                 .stream()
                 .max(Comparator.comparingLong(CartoesDTO::getQntdCartoes))
                 .orElse(null);
@@ -89,7 +89,14 @@ public class PartidaService {
                 .max(Comparator.comparingLong(ArenasEGolsDTO::getQntdGols))
                 .orElse(null);
     }
-    public List<EstatisticaDTO> obterClubesMaisPrecisosEmPasses() {
-        return partidaRepository.clubesMaisPrecisosEmPasses();
+    public EstatisticaDTO clubeComMaiorPrecisao() {
+        return partidaRepository.clubesMaisPrecisosEmPasses()
+                .stream()
+                .max(Comparator.comparing(dto -> {
+                    String precisao = dto.getPrecisao();
+                    return precisao != null ? precisao : "";
+                }))
+                .orElse(null);
     }
+
 }
