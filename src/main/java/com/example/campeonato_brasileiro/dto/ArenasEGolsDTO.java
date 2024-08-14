@@ -28,4 +28,6 @@ public class ArenasEGolsDTO {
     public void setQntdGols(Long qntdGols) {
         this.qntdGols = qntdGols;
     }
+
+    //fazendo teste
 }
